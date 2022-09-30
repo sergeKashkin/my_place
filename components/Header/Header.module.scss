@@ -1,0 +1,18 @@
+@import "../../styles/variables.scss";
+
+.headerComponent {
+    margin-bottom: 5vh;
+
+    .title {
+        text-align: center;
+        font-size: $font-large;
+        line-height: 1em;
+        letter-spacing: .2em;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: $font-medium;
+        line-height: 1em;
+    }
+}
