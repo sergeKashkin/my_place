@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
     "graphql": "^16.5.0",
     "markdown-it": "^13.0.1",
     "next": "12.2.2",
