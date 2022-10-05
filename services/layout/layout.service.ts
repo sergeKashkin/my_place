@@ -1,10 +1,6 @@
-export interface ILayoutService {
-    isTouchScreenEnabled(): boolean;
-    isMobileDevice(): boolean;
-}
-export class LayoutService implements ILayoutService {
+export class LayoutService {
 
-    isTouchScreenEnabled(): boolean {
+    public static isTouchScreenEnabled(): boolean {
         try {
             document.createEvent('TouchEvent');
             return true;
@@ -14,7 +10,7 @@ export class LayoutService implements ILayoutService {
         }
     }
 
-    isMobileDevice(): boolean {
+    public static isMobileDevice(): boolean {
         return window.innerWidth <= 768;
     }
 

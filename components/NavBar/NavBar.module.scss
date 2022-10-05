@@ -54,6 +54,30 @@
     .title {
         font-size: 1.3em;
     }
+
+    .personalInfo {
+        margin-top: 3vh;
+
+        .email {
+            font-weight: bold;
+        }
+    
+        .thumbnails {
+            margin-top: 2vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .thumbnail {
+                cursor: pointer;
+
+                img {
+                    max-width: 2em;
+                }
+            }
+        }
+    }
 }
 
 @media(max-width: 768px) {

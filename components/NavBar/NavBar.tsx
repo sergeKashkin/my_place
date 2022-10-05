@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import { LayoutService } from "../../services/layout/layout.service";
-const layoutService = new LayoutService();
 
 const NavBar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -15,12 +14,14 @@ const NavBar = () => {
         setMenuOpen(!isMenuOpen);
     }
 
-    window.addEventListener('resize', () => {
-        !layoutService.isMobileDevice() ? setMenuOpen(false) : undefined;
-    });
+    if (typeof window !== "undefined") {
+        window.addEventListener('resize', () => {
+            !LayoutService.isMobileDevice() ?? setMenuOpen(false);
+        });
+    }
 
     const handleScroll = () => {
-        if (isMenuOpen && layoutService.isMobileDevice()) {
+        if (isMenuOpen && LayoutService.isMobileDevice()) {
             document.body.style.overflow = 'hidden';
         }
         else {
@@ -53,6 +54,23 @@ const NavBar = () => {
                 <Link href="/#toolbox">
                     <a className={styles.title}>Toolbox</a>
                 </Link>
+                <div className={styles.personalInfo}>
+                <div className={styles.email}>
+                    <a href="mailto:sergmaloi@gmail.com">sergmaloi@gmail.com</a>
+                </div>
+                <div className={styles.thumbnails}>
+                    <div className={styles.thumbnail}>
+                        <Link href="https://www.linkedin.com/in/kashkin-sergei/">
+                            <img src="/icons/linkedin.png"></img>
+                        </Link>
+                    </div>
+                    <div className={styles.thumbnail}>
+                        <Link href="https://github.com/sergeKashkin">
+                            <img src="/icons/github.png"></img>
+                        </Link>
+                    </div>
+                </div>
+            </div>
             </nav>
         </>
     );

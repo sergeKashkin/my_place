@@ -30,7 +30,6 @@ const PostPage = (props: Props) => {
                         <Markdown
                             className={styles.markdownContainer} 
                             remarkPlugins={[remarkGfm]}
-                            transformImageUri={(uri) => `${environment.cmsUrl}${uri}`}
                         >
                             {props.article.content}
                         </Markdown>

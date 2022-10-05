@@ -53,7 +53,7 @@ export class DataService implements IDataService {
                 createdAt: article.attributes?.createdAt,
                 description: article.attributes?.description!,
                 media: article.attributes?.media?.data.map((mediaUrl: UploadFileEntity) => {
-                    return `${environment.cmsUrl}${mediaUrl.attributes?.url!}`;
+                    return `${mediaUrl.attributes?.url!}`;
                 })!,
                 title: article.attributes?.title!
             };
@@ -73,7 +73,7 @@ export class DataService implements IDataService {
                 description: article.attributes?.description!,
                 content: article.attributes?.content!,
                 media: article.attributes?.media?.data.map((mediaUrl: UploadFileEntity) => {
-                    return `${environment.cmsUrl}${mediaUrl.attributes?.url!}`;
+                    return `${mediaUrl.attributes?.url!}`;
                 })!,
             };
         });
@@ -99,7 +99,7 @@ export class DataService implements IDataService {
 
     private initialize(): void {
         this._client = new ApolloClient({
-            uri: `${environment.cmsUrl}/graphql`,
+            uri: `${environment.cmsUrl}graphql`,
             cache: new InMemoryCache()
         });
     }

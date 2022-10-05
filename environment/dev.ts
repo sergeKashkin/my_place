@@ -4,7 +4,7 @@ export interface environmentType {
 };
 
 const environment: environmentType = {
-    cmsUrl: "http://localhost:1337",
+    cmsUrl: "https://myplace-strapi.herokuapp.com/",
     isProduction: false
 };
 
