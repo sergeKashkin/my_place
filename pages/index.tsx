@@ -97,7 +97,7 @@ const Home: NextPage<Props> = (props: Props): JSX.Element => {
         <div className={styles.toolBox}>
             {
               tools.map((tool: tool) => <div className={styles.tool} key={tool.icon}>
-                  <Image src={`/icons/${tool.icon}.png`}></Image>
+                  <img src={`/icons/${tool.icon}.png`}></img>
                   <div className="title">{tool.title}</div>
                 </div>
                 )

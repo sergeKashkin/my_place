@@ -9,7 +9,7 @@ const ArticlePreview: React.FC<articlePreview> = (articlePreview: articlePreview
         <Link href={`/posts/${articlePreview.id}`}>
             <div className={styles.articlePreview}>
                 <div className={styles.imageContainer}>
-                    <Image src={articlePreview.media[0]}></Image>
+                    <img src={articlePreview.media[0]}></img>
                 </div>
                 <div className={styles.titleContainer}>
                     <div className={styles.title}>

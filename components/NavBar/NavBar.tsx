@@ -62,12 +62,12 @@ const NavBar = () => {
                 <div className={styles.thumbnails}>
                     <div className={styles.thumbnail}>
                         <Link href="https://www.linkedin.com/in/kashkin-sergei/">
-                            <Image src="/icons/linkedin.png"></Image>
+                            <img src="/icons/linkedin.png"></img>
                         </Link>
                     </div>
                     <div className={styles.thumbnail}>
                         <Link href="https://github.com/sergeKashkin">
-                            <Image src="/icons/github.png"></Image>
+                            <img src="/icons/github.png"></img>
                         </Link>
                     </div>
                 </div>
