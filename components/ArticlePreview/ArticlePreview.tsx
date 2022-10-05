@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { articlePreview } from "../../services/data/data.service";
@@ -8,7 +9,7 @@ const ArticlePreview: React.FC<articlePreview> = (articlePreview: articlePreview
         <Link href={`/posts/${articlePreview.id}`}>
             <div className={styles.articlePreview}>
                 <div className={styles.imageContainer}>
-                    <img src={articlePreview.media[0]}></img>
+                    <Image src={articlePreview.media[0]}></Image>
                 </div>
                 <div className={styles.titleContainer}>
                     <div className={styles.title}>

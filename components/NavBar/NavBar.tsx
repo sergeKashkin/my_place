@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./NavBar.module.scss";
 import { LayoutService } from "../../services/layout/layout.service";
+import Image from "next/image";
 
 const NavBar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -61,12 +62,12 @@ const NavBar = () => {
                 <div className={styles.thumbnails}>
                     <div className={styles.thumbnail}>
                         <Link href="https://www.linkedin.com/in/kashkin-sergei/">
-                            <img src="/icons/linkedin.png"></img>
+                            <Image src="/icons/linkedin.png"></Image>
                         </Link>
                     </div>
                     <div className={styles.thumbnail}>
                         <Link href="https://github.com/sergeKashkin">
-                            <img src="/icons/github.png"></img>
+                            <Image src="/icons/github.png"></Image>
                         </Link>
                     </div>
                 </div>
