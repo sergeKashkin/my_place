@@ -11,7 +11,6 @@
     "react/no-unescaped-entities": 0,
     "@typescript-eslint/no-inferrable-types": 0,
     "@typescript-eslint/no-non-null-asserted-optional-chain": 0,
-    "react/prop-types": 0,
-    "react/forbid-prop-types": 0
+    "react/no-children-prop": 0
   }
 }
