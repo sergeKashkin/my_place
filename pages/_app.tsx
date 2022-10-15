@@ -11,7 +11,7 @@ const dataService = new DataService();
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const lastHistoryStateRef = useRef(global.history?.state);
-  let [menuState, setMenuState] = useState(false);
+  const [menuState, setMenuState] = useState(false);
 
   useEffect(() => {
 
