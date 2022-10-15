@@ -4,25 +4,31 @@ import styles from "./NavBar.module.scss";
 import { LayoutService } from "../../services/layout/layout.service";
 import Image from "next/image";
 
-const NavBar = () => {
-    const [isMenuOpen, setMenuOpen] = useState(false);
-    
+export interface NavBarProps {
+    menuState: boolean;
+    menuStateChange: Function;
+}
+
+const NavBar: React.FC<NavBarProps> = (navBarProps: NavBarProps) => {
+
     useEffect(() => {
         handleScroll();
-    }, [isMenuOpen]);
+    }, [navBarProps.menuState]);
 
     const toggleMenu = () => {
-        setMenuOpen(!isMenuOpen);
+        navBarProps.menuStateChange((currentState: boolean) => {
+            return !currentState;
+        });
     }
 
     if (typeof window !== "undefined") {
         window.addEventListener('resize', () => {
-            !LayoutService.isMobileDevice() ?? setMenuOpen(false);
+            !LayoutService.isMobileDevice() ?? navBarProps.menuStateChange();
         });
     }
 
     const handleScroll = () => {
-        if (isMenuOpen && LayoutService.isMobileDevice()) {
+        if (navBarProps.menuState && LayoutService.isMobileDevice()) {
             document.body.style.overflow = 'hidden';
         }
         else {
@@ -35,7 +41,7 @@ const NavBar = () => {
             <div className={styles.menuButton} onClick={() => toggleMenu()}>
                 <div className={styles.menuButtonHandler}>⋮</div>
             </div>
-            <nav className={`${styles.navBar} ${isMenuOpen ? styles.open : styles.closed}`} onClick={() => toggleMenu()}> 
+            <nav className={`${styles.navBar} ${navBarProps.menuState ? styles.open : styles.closed}`} onClick={() => toggleMenu()}> 
                 <div className={styles.info}>
                     <div className={styles.infoTitle}>Sergei</div>
                     <div className={styles.infoTitle}>Kashkin</div>
