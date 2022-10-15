@@ -1,12 +1,11 @@
 import { GetServerSideProps } from "next";
 import React from "react";
 import { articleFull, DataService } from "../../services/data/data.service";
-import MarkdownIt from "markdown-it";
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { environment } from "../../environment/dev";
 import styles from "./PostPage.module.scss";
-
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 const dataService = new DataService();
 
 export interface Props {
@@ -14,9 +13,6 @@ export interface Props {
 }
 
 const PostPage = (props: Props) => {
-    const md = new MarkdownIt();
-    const articleHtml = md.render(props.article.content);
-
     return (
         <div className={styles.postPage}>
             <div className={styles.post}>
@@ -30,6 +26,29 @@ const PostPage = (props: Props) => {
                         <Markdown
                             className={styles.markdownContainer} 
                             remarkPlugins={[remarkGfm]}
+                            components={{
+                                code({node, inline, className, children, ...props}) {
+                                    const match = /language-(\w+)/.exec(className || "")
+                                    return !inline && match ? (
+                                        <SyntaxHighlighter
+                                            children={String(children).replace(/\n$/, '')}
+                                            // @ts-expect-error
+                                            style={materialDark}
+                                            lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap'}}}
+                                            language={match[1]}
+                                            PreTag="div"
+                                            wrapLines={true}
+                                            showLineNumbers={true}
+                                            showInlineLineNumbers={true}
+                                            {...props}
+                                        />
+                                    ) : (
+                                        <code className={className} {...props}>
+                                            {children}
+                                        </code>
+                                    )
+                                }
+                            }}
                         >
                             {props.article.content}
                         </Markdown>
