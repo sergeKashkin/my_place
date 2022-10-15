@@ -1,15 +1,17 @@
 {
   "plugins": ["@typescript-eslint/eslint-plugin"],
-  "rules": { "react/no-unescaped-entities": 0, 
-              "@typescript-eslint/no-inferrable-types": 0,
-              "@typescript-eslint/no-non-null-asserted-optional-chain": 0,
-              "react/prop-types": "off"
-  },
   "extends": [
-      "next/core-web-vitals",
-      "eslint:recommended",
-      "next/core-web-vitals",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
-  ]
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "react/no-unescaped-entities": 0,
+    "@typescript-eslint/no-inferrable-types": 0,
+    "@typescript-eslint/no-non-null-asserted-optional-chain": 0,
+    "react/prop-types": 0,
+    "react/forbid-prop-types": 0
+  }
 }
