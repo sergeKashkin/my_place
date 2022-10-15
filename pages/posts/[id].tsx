@@ -1,3 +1,4 @@
+/* eslint react/prop-types: 0 */
 import { GetServerSideProps } from "next";
 import React from "react";
 import { articleFull, DataService } from "../../services/data/data.service";
@@ -32,7 +33,7 @@ const PostPage = (props: Props) => {
                                     return !inline && match ? (
                                         <SyntaxHighlighter
                                             children={String(children).replace(/\n$/, '')}
-                                            // @ts-expect-error
+                                            // @ts-expect-error improper type of syntax-highlighter
                                             style={materialDark}
                                             lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap'}}}
                                             language={match[1]}
