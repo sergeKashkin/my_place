@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export interface NavBarProps {
     menuState: boolean;
-    menuStateChange: Function;
+    menuStateChange: (arg: any) => any;
 }
 
 const NavBar: React.FC<NavBarProps> = (navBarProps: NavBarProps) => {
@@ -23,7 +23,7 @@ const NavBar: React.FC<NavBarProps> = (navBarProps: NavBarProps) => {
 
     if (typeof window !== "undefined") {
         window.addEventListener('resize', () => {
-            !LayoutService.isMobileDevice() ?? navBarProps.menuStateChange();
+            !LayoutService.isMobileDevice() ?? navBarProps.menuStateChange(false);
         });
     }
 
