@@ -45,6 +45,7 @@ export class DataService implements IDataService {
         // Gets 4 most recent article previews
         let articlePreviews: ApolloQueryResult<getArticlesServerResponse> = await this._client.query({
             query: getArticlePreviews,
+            fetchPolicy: "no-cache"
         });
         
         return articlePreviews.data.articles.data.map((article: ArticleEntity): articlePreview => {
@@ -63,6 +64,7 @@ export class DataService implements IDataService {
     public async getArticles(): Promise<articleFull[]> {
         let fullArticles: ApolloQueryResult<getArticlesServerResponse> = await this._client.query({
             query: getArticlesFull,
+            fetchPolicy: "no-cache"
         });
 
         return fullArticles.data.articles.data.map((article: ArticleEntity): articleFull => {
@@ -82,7 +84,8 @@ export class DataService implements IDataService {
     public async getArticle(id: number): Promise<articleFull> {
         let article: ApolloQueryResult<getArticleServerResponse> = await this._client.query({
             query: getArticle,
-            variables: {id: id}
+            variables: {id: id},
+            fetchPolicy: "no-cache"
         });
 
         return {
