@@ -48,7 +48,9 @@ const PostPage = (props: Props) => {
                                             {children}
                                         </code>
                                     )
-                                }
+                                },
+                                a: ({...props}) => <a className={styles.articleLink} {...props}/>,
+                                img: ({...props}) => <img className={styles.articleImg} {...props}/>
                             }}
                         >
                             {props.article.content}
