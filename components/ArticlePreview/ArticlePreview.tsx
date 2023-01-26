@@ -15,13 +15,13 @@ const ArticlePreview: React.FC<articlePreview> = (articlePreview: articlePreview
                     <div className={styles.title}>
                         {articlePreview.title}
                     </div>
+                    <div className={styles.subtitle}>
+                        {articlePreview.description}
+                    </div> 
                     <div className={styles.date}>
                         {new Date(articlePreview.createdAt).toLocaleDateString()}
-                    </div>
-                </div> 
-                <div className={styles.subtitleContainer}>
-                    {articlePreview.description}
-                </div>     
+                    </div>    
+                </div>
             </div>
         </Link>
     );
