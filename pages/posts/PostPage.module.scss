@@ -13,16 +13,17 @@
         border-radius: 1em;
         overflow-y: auto;
 
-        .markdownContainer {
-    
-            img {
+        .articleImg {
                 width: auto;
                 max-height: 35vh;
                 height: auto;
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-            }
+        }
+
+        .articleLink {
+            text-decoration: underline;
         }
     }
 
@@ -30,14 +31,12 @@
 
 @media(max-width: 768px) {
     .postPage {
+        
         .post {
     
-            .markdownContainer {
-                
-                img {
-                    max-height: 25vh;
-                    max-width: 90vw;
-                }
+            .articleImg {
+                max-height: 25vh;
+                max-width: 90vw;
             }
         }
     }
